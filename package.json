@@ -4,7 +4,7 @@
   "description": "backend of the blog app",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
+    "start": "node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "test": " cross-env Node_ENV=test jest --verbose  --runInBand",
     "start:test": "cross-env NODE_ENV=test node index.js"
