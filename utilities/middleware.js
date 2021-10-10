@@ -1,5 +1,4 @@
 require('dotenv').config()
-const request = require('superagent')
 const logger = require('./logger')
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
