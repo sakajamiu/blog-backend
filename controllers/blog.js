@@ -4,6 +4,7 @@ const userExtractor = require('../utilities/middleware').userExtractor
 
 blogRouter.get('/',async (request,response) => {
    const blogs=  await Blog.find({}).populate('user', { username: 1, name: 1})
+   console.log(blogs)
     response.json(blogs)
         
 })
@@ -48,6 +49,19 @@ blogRouter.post('/',userExtractor ,async (request,response) => {
     response.json(savedBlog)
   
 
+})
+blogRouter.post('/:id/comments', async(request,response) => {
+    const body = request.body
+    const blog = {
+        comments: body.comments
+
+    }
+
+    const commentedBlog = 
+        await Blog
+            .findByIdAndUpdate( request.params.id, blog, { new : true })
+    response.json(commentedBlog)
+    console.log(commentedBlog)
 })
 
 blogRouter.delete('/:id',userExtractor, async ( request,response) => {
